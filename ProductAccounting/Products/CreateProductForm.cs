@@ -17,23 +17,14 @@ namespace ProductAccounting.Products
         public CreateProductForm()
         {
             InitializeComponent();
-            Refresh();
 
             Measurement[] measurement = (Measurement[])Enum.GetValues(typeof(Measurement));
             measurement.ToList().ForEach(m => comboBox_Measurement.Items.Add(m));
         }
 
-        private void Refresh()
+        private void CreateProductForm_Load(object sender, EventArgs e)
         {
-            textBox_Name.Text = "\0";
-            textBox_Notes.Text = "\0";
-
-            checkBox_IsSplitting.Checked = false;
-            numericUpDown_Splitting.Enabled = checkBox_IsSplitting.Checked;
-            numericUpDown_Splitting.Value = 0;
-
-            comboBox_Measurement.Enabled = checkBox_IsSplitting.Checked;
-            comboBox_Measurement.SelectedItem = null;
+            RefreshForm();
         }
 
         private void button_Add_Click(object sender, EventArgs e)
@@ -48,7 +39,6 @@ namespace ProductAccounting.Products
                 AddNotSplittingProduct();
 
             DialogResult = DialogResult.OK;
-            Refresh();
             Close();
         }
 
@@ -81,6 +71,19 @@ namespace ProductAccounting.Products
                 return false;
             MessageBox.Show(error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return true;
+        }
+
+        private void RefreshForm()
+        {
+            textBox_Name.Text = "\0";
+            textBox_Notes.Text = "\0";
+
+            checkBox_IsSplitting.Checked = false;
+            numericUpDown_Splitting.Enabled = checkBox_IsSplitting.Checked;
+            numericUpDown_Splitting.Value = 0;
+
+            comboBox_Measurement.Enabled = checkBox_IsSplitting.Checked;
+            comboBox_Measurement.SelectedItem = null;
         }
     }
 }

@@ -75,6 +75,7 @@
             this.listView_Products.HideSelection = false;
             this.listView_Products.Location = new System.Drawing.Point(3, 10);
             this.listView_Products.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.listView_Products.MultiSelect = false;
             this.listView_Products.Name = "listView_Products";
             this.listView_Products.Size = new System.Drawing.Size(484, 273);
             this.listView_Products.TabIndex = 1;
@@ -165,7 +166,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(656, 327);
             this.Name = "ProductsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Товары";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductsForm_FormClosing);
+            this.Load += new System.EventHandler(this.ProductsForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             this.ResumeLayout(false);

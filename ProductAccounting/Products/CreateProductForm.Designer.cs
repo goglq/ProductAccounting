@@ -86,6 +86,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(16, 40);
@@ -96,6 +97,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(16, 80);
@@ -106,6 +108,7 @@
             // 
             // comboBox_Measurement
             // 
+            this.comboBox_Measurement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_Measurement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Measurement.FormattingEnabled = true;
             this.comboBox_Measurement.Location = new System.Drawing.Point(152, 80);
@@ -115,6 +118,7 @@
             // 
             // numericUpDown_Splitting
             // 
+            this.numericUpDown_Splitting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown_Splitting.Location = new System.Drawing.Point(152, 40);
             this.numericUpDown_Splitting.Maximum = new decimal(new int[] {
             1000000,
@@ -127,6 +131,7 @@
             // 
             // checkBox_IsSplitting
             // 
+            this.checkBox_IsSplitting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox_IsSplitting.AutoSize = true;
             this.checkBox_IsSplitting.Location = new System.Drawing.Point(152, 16);
             this.checkBox_IsSplitting.Name = "checkBox_IsSplitting";
@@ -230,8 +235,11 @@
             this.ClientSize = new System.Drawing.Size(418, 332);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MinimumSize = new System.Drawing.Size(434, 371);
             this.Name = "CreateProductForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавить товар";
+            this.Load += new System.EventHandler(this.CreateProductForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

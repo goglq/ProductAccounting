@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ProductsContainer.cs" />
+    <Compile Include="Data\SavePath.cs" />
     <Compile Include="Inventory\InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>

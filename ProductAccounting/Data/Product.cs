@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ProductAccounting.Data
 {
@@ -18,8 +19,11 @@ namespace ProductAccounting.Data
 
         public Measurement Measurement { get; set; }
 
+        public int Quantity { get; set; }
+
         public Product(string name, string note)
         {
+            Quantity = 1;
             Name = name;
             Note = note;
             IsSplitting = false;
@@ -29,7 +33,7 @@ namespace ProductAccounting.Data
         {
             IsSplitting = true;
             Splitting = splitting;
-            Measurement = Measurement;
+            Measurement = measurement;
         }
 
         public override bool Equals(object obj)
@@ -58,5 +62,26 @@ namespace ProductAccounting.Data
 
         public static bool operator ==(Product left, Product right) => left.Equals(right);
         public static bool operator !=(Product left, Product right) => !left.Equals(right);
+
+        public XElement ToXml() =>
+            new XElement(
+                    "product",
+                    new XAttribute("isSplitting", IsSplitting),
+                    new XAttribute("quantity", Quantity),
+                    new XElement("name", Name),
+                    new XElement("note", Note),
+                    new XElement("splitting", Splitting),
+                    new XElement("measurement", (int)Measurement));
+
+        public static Product FromXml(XElement xElement) =>
+            (bool)xElement.Attribute("isSplitting") ? 
+            new Product(
+                (string)xElement.Element("name"),
+                (string)xElement.Element("note"),
+                (decimal)xElement.Element("splitting"),
+                (Measurement)(int)xElement.Element("measurement")) { Quantity = (int)xElement.Attribute("quantity") } :
+            new Product(
+                (string)xElement.Element("name"), 
+                (string)xElement.Element("note")) { Quantity = (int)xElement.Attribute("quantity") };
     }
 }
