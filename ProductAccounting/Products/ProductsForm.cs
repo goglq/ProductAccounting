@@ -1,12 +1,7 @@
 ﻿using ProductAccounting.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductAccounting.Products
@@ -57,7 +52,7 @@ namespace ProductAccounting.Products
             if (!(listView_Products.SelectedItems[0].Tag is Product))
                 throw new ArgumentException("Ошибка! Передана переменная неправильного типа");
 
-            ProductsContainer.Instance.Products.Remove((Product)listView_Products.SelectedItems[0].Tag);
+            ProductsContainer.Instance.Delete((Product)listView_Products.SelectedItems[0].Tag);
             FillListView();
         }
 

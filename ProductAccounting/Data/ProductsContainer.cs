@@ -21,41 +21,43 @@ namespace ProductAccounting.Data
             }
         }
 
+        private IList<Product> products;
+
         public bool IsChanged { get; private set; }
-        public IList<Product> Products { get; private set; }
+        public IReadOnlyList<Product> Products => (List<Product>)products;
 
         private ProductsContainer()
         {
-            Products = new List<Product>();
+            products = new List<Product>();
             IsChanged = false;
         }
 
         public void Add(Product product)
         {
-            if (Products.Contains(product))
+            if (products.Contains(product))
             {
-                Products[Products.IndexOf(product)].Quantity += 1;
+                products[products.IndexOf(product)].Quantity += 1;
                 return;
             }
 
-            Products.Add(product);
+            products.Add(product);
             IsChanged = true;
         }
 
         public void Change(Product oldProduct, Product changedProduct)
         {
-            if (!Products.Contains(oldProduct))
+            if (!products.Contains(oldProduct))
                 throw new InvalidOperationException("Ошибка! Данного элемента в коллекции не существует.");
             if (oldProduct == changedProduct)
                 return;
 
-            Products[Products.IndexOf(oldProduct)] = changedProduct;
+            products[products.IndexOf(oldProduct)] = changedProduct;
 
             IsChanged = true;
         }
 
         public void Delete(Product product) {
-            Products.Remove(product);
+            products.Remove(product);
             IsChanged = true;
         }
 
@@ -63,7 +65,7 @@ namespace ProductAccounting.Data
         {
             XElement xml = new XElement(
                 "products",
-                Products.Select(product => product.ToXml()));
+                products.Select(product => product.ToXml()));
             xml.Save(SavePath.Instance.ProductsSavePath);
 
             IsChanged = false;
@@ -74,7 +76,7 @@ namespace ProductAccounting.Data
             if (!File.Exists(SavePath.Instance.ProductsSavePath))
                 return;
 
-            Products = XElement.Load(SavePath.Instance.ProductsSavePath)
+            products = XElement.Load(SavePath.Instance.ProductsSavePath)
               .Elements("product")
               .Select(node => Product.FromXml(node))
               .ToList();

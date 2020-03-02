@@ -36,6 +36,8 @@ namespace ProductAccounting.Data
             Measurement = measurement;
         }
 
+        public override string ToString() => Name;
+
         public override bool Equals(object obj)
         {
             if (obj is null)
