@@ -39,9 +39,9 @@ namespace ProductAccounting.Products
                 MessageBox.Show("Выберите продукт, который будет отредактирован!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             if (DialogResult.Cancel == dialogs[(Button)sender].ShowDialog())
                 return;
+
             FillListView();
         }
 

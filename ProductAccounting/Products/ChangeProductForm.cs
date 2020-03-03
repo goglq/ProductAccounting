@@ -1,12 +1,7 @@
 ﻿using ProductAccounting.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductAccounting.Products
@@ -42,18 +37,26 @@ namespace ProductAccounting.Products
         }
 
         private void Button_Change_Click(object sender, EventArgs e)
-        {
+        { 
+            Product product = checkBox_IsSplitting.Checked ?
+                new Product(
+                    textBox_Name.Text,
+                    textBox_Notes.Text,
+                    numericUpDown_Splitting.Value,
+                    (Measurement)comboBox_Measurement.SelectedItem) :
+                new Product(textBox_Name.Text, textBox_Notes.Text);
+
+            if(product == (Product)productView.SelectedItems[0].Tag)
+            {
+                DialogResult = DialogResult.Cancel;
+                Close();
+                return;
+            }
+
             if (MessageBox.Show("Подтвердить изменения?", "Изменить", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            ProductsContainer.Instance.Change((Product)productView.SelectedItems[0].Tag, 
-                checkBox_IsSplitting.Checked ? 
-                new Product(
-                    textBox_Name.Text, 
-                    textBox_Notes.Text, 
-                    numericUpDown_Splitting.Value, 
-                    (Measurement)comboBox_Measurement.SelectedItem) :
-                new Product(textBox_Name.Text, textBox_Notes.Text));
+            ProductsContainer.Instance.Change((Product)productView.SelectedItems[0].Tag, product);
 
             DialogResult = DialogResult.OK;
             Close();
