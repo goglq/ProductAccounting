@@ -22,14 +22,14 @@ namespace ProductAccounting.Procurements
             dialogs = new Dictionary<Button, Form>()
             {
                 {button_Add, new CreateProcurementForm()},
-                {button_Change, new CreateProcurementForm()}
+                {button_Change, new ChangeProcurementForm(listView_Procurements)}
             };
         }
 
         private void ProcurementForm_Load(object sender, EventArgs e)
         {
             ProcurementsContainer.Instance.Load();
-            FillListView();
+            RefreshListView();
         }
 
         private void Button_Menu_Click(object sender, EventArgs e)
@@ -47,10 +47,23 @@ namespace ProductAccounting.Procurements
             if (DialogResult.Cancel == dialogs[(Button)sender].ShowDialog())
                 return;
 
-            FillListView();
+            RefreshListView();
         }
 
-        private void FillListView()
+        private void Button_Delete_Click(object sender, EventArgs e)
+        {
+            Procurement selectedProcurement = listView_Procurements.SelectedItems[0].Tag as Procurement;
+            if (selectedProcurement is null)
+            {
+                MessageBox.Show("Выберите элемент, который вы хотите удалить!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ProcurementsContainer.Instance.Delete(selectedProcurement);
+            RefreshListView();
+        }
+
+        private void RefreshListView()
         {
             listView_Procurements.Items.Clear();
             ProcurementsContainer.Instance.Procurements.ToList().ForEach(procurement => AddProcurementToListView(procurement));

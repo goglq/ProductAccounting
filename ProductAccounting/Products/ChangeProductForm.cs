@@ -28,6 +28,7 @@ namespace ProductAccounting.Products
             textBox_Name.Text = selectedProduct.Name;
             textBox_Notes.Text = selectedProduct.Note;
             checkBox_IsSplitting.Checked = selectedProduct.IsSplitting;
+            numericUpDown_quantity.Value = selectedProduct.Quantity;
 
             if (!checkBox_IsSplitting.Checked)
                 return;

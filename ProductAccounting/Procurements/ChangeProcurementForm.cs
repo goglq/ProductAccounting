@@ -14,12 +14,16 @@ namespace ProductAccounting.Procurements
 {
     public partial class ChangeProcurementForm : Form
     {
+        private ListView listView;
+
         public Procurement Procurement { get; set; }
         private IDictionary<Product, long> products = new Dictionary<Product, long>();
 
-        public ChangeProcurementForm()
+        public ChangeProcurementForm(ListView listView)
         {
             InitializeComponent();
+
+            this.listView = listView;
         }
 
         private void button_add_Click(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace ProductAccounting.Procurements
 
             AddProductWithPrice(soledProduct);
             ChangeMaximumProductQuantity();
-            FillListView();
+            RefreshListView();
             comboBox_product.BackColor = Color.White;
         }
 
@@ -51,9 +55,21 @@ namespace ProductAccounting.Procurements
             checkBox_recieved.Checked = false;
             dateTimePicker_recieve.Enabled = false;
 
-            Procurement = null;
-            products.Clear();
+            GetProcurementProducts();
+            RefreshListView();
+
             FillComboBox();
+
+            listView_products.Items[0].Selected = true;
+        }
+
+        private void GetProcurementProducts()
+        {
+            Procurement = (Procurement)listView.SelectedItems[0].Tag;
+            Procurement.ProductsWithPrice
+                .Select(keyValue => new KeyValuePair<Product, long>(keyValue.Key, keyValue.Value))
+                .ToList()
+                .ForEach(keyValue => products.Add(keyValue));
         }
 
         private void AddProductWithPrice(Product soledProduct)
@@ -75,25 +91,39 @@ namespace ProductAccounting.Procurements
             if (listView_products.SelectedItems.Count == 0)
                 return;
             Product sellProduct = (Product)listView_products.SelectedItems[0].Tag;
+            Product productOnStock = ProductsContainer.Instance.Products
+                .Where(product => 
+                sellProduct.Name == product.Name 
+                && sellProduct.Note == product.Note
+                && sellProduct.Measurement == product.Measurement
+                && sellProduct.Splitting == product.Splitting
+                && sellProduct.IsSplitting == product.IsSplitting).First();
 
-            Product productOnStock = (Product)comboBox_product.SelectedItem;
             productOnStock.Quantity += sellProduct.Quantity;
 
             products.Remove(sellProduct);
-            FillListView();
+            RefreshListView();
         }
 
         private void Button_saveExit_Click(object sender, EventArgs e)
         {
+            if(products.Count == 0)
+            {
+                ProcurementsContainer.Instance.Delete((Procurement)listView.SelectedItems[0].Tag);
+                DialogResult = DialogResult.OK;
+                Close();
+                return;
+            }
+
             Procurement = new Procurement(dateTimePicker_recieve.Value, dateTimePicker_payment.Value, products, checkBox_recieved.Checked);
             if (Procurement is null)
                 return;
             DialogResult = DialogResult.OK;
-            ProcurementsContainer.Instance.Add(Procurement);
+            ProcurementsContainer.Instance.Change((Procurement)listView.SelectedItems[0].Tag, Procurement);
             Close();
         }
 
-        private void FillListView()
+        private void RefreshListView()
         {
             listView_products.Items.Clear();
             foreach (KeyValuePair<Product, long> product_and_price in products)

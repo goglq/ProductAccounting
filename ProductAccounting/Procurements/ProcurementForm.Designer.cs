@@ -50,15 +50,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.Controls.Add(this.listView_Procurements, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(847, 356);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 289);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // listView_Procurements
@@ -69,11 +68,13 @@
             this.columnProducts,
             this.columnPrice});
             this.listView_Procurements.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView_Procurements.FullRowSelect = true;
             this.listView_Procurements.HideSelection = false;
-            this.listView_Procurements.Location = new System.Drawing.Point(4, 12);
-            this.listView_Procurements.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
+            this.listView_Procurements.Location = new System.Drawing.Point(3, 10);
+            this.listView_Procurements.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.listView_Procurements.MultiSelect = false;
             this.listView_Procurements.Name = "listView_Procurements";
-            this.listView_Procurements.Size = new System.Drawing.Size(639, 340);
+            this.listView_Procurements.Size = new System.Drawing.Size(479, 276);
             this.listView_Procurements.TabIndex = 1;
             this.listView_Procurements.UseCompatibleStateImageBehavior = false;
             this.listView_Procurements.View = System.Windows.Forms.View.Details;
@@ -105,19 +106,17 @@
             this.panel.Controls.Add(this.button_Delete);
             this.panel.Controls.Add(this.button_Change);
             this.panel.Controls.Add(this.button_Add);
-            this.panel.Location = new System.Drawing.Point(651, 4);
-            this.panel.Margin = new System.Windows.Forms.Padding(4);
+            this.panel.Location = new System.Drawing.Point(488, 3);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(192, 348);
+            this.panel.Size = new System.Drawing.Size(144, 283);
             this.panel.TabIndex = 2;
             // 
             // button_Menu
             // 
             this.button_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Menu.Location = new System.Drawing.Point(11, 272);
-            this.button_Menu.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Menu.Location = new System.Drawing.Point(8, 221);
             this.button_Menu.Name = "button_Menu";
-            this.button_Menu.Size = new System.Drawing.Size(171, 69);
+            this.button_Menu.Size = new System.Drawing.Size(128, 56);
             this.button_Menu.TabIndex = 3;
             this.button_Menu.Text = "Главное меню";
             this.button_Menu.UseVisualStyleBackColor = true;
@@ -125,30 +124,29 @@
             // 
             // button_Delete
             // 
-            this.button_Delete.Location = new System.Drawing.Point(11, 167);
-            this.button_Delete.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Delete.Location = new System.Drawing.Point(8, 136);
             this.button_Delete.Name = "button_Delete";
-            this.button_Delete.Size = new System.Drawing.Size(171, 69);
+            this.button_Delete.Size = new System.Drawing.Size(128, 56);
             this.button_Delete.TabIndex = 2;
             this.button_Delete.Text = "Удалить";
             this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
             // 
             // button_Change
             // 
-            this.button_Change.Location = new System.Drawing.Point(11, 89);
-            this.button_Change.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Change.Location = new System.Drawing.Point(8, 72);
             this.button_Change.Name = "button_Change";
-            this.button_Change.Size = new System.Drawing.Size(171, 69);
+            this.button_Change.Size = new System.Drawing.Size(128, 56);
             this.button_Change.TabIndex = 1;
             this.button_Change.Text = "Изменить";
             this.button_Change.UseVisualStyleBackColor = true;
+            this.button_Change.Click += new System.EventHandler(this.Button_Click);
             // 
             // button_Add
             // 
-            this.button_Add.Location = new System.Drawing.Point(11, 10);
-            this.button_Add.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Add.Location = new System.Drawing.Point(8, 8);
             this.button_Add.Name = "button_Add";
-            this.button_Add.Size = new System.Drawing.Size(171, 69);
+            this.button_Add.Size = new System.Drawing.Size(128, 56);
             this.button_Add.TabIndex = 0;
             this.button_Add.Text = "Добавить";
             this.button_Add.UseVisualStyleBackColor = true;
@@ -156,12 +154,11 @@
             // 
             // ProcurementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 354);
+            this.ClientSize = new System.Drawing.Size(637, 288);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(865, 392);
+            this.MinimumSize = new System.Drawing.Size(653, 326);
             this.Name = "ProcurementForm";
             this.Text = "Закупки";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProcurementForm_FormClosing);
