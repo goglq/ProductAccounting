@@ -24,7 +24,7 @@ namespace ProductAccounting.Products
 
         private void Button_Add_Click(object sender, EventArgs e)
         {
-            if (IsError("Название товара не заполнено", string.IsNullOrWhiteSpace(textBox_Name.Text)) || 
+            if (IsError("Название товара не заполнено", string.IsNullOrWhiteSpace(textBox_Name.Text)) ||
                 IsError("Выберите единицу измерения", checkBox_IsSplitting.Checked && comboBox_Measurement.SelectedItem == null))
                 return;
 
@@ -40,13 +40,19 @@ namespace ProductAccounting.Products
         private void AddNotSplittingProduct() =>
             ProductsContainer.Instance.Add(new Product(
                 textBox_Name.Text,
-                textBox_Notes.Text));
+                textBox_Notes.Text)
+            {
+                Quantity = (int)numericUpDown_quantity.Value,
+            });
 
         private void AddSplittingProduct() => ProductsContainer.Instance.Add(new Product(
                 textBox_Name.Text,
                 textBox_Notes.Text,
                 numericUpDown_Splitting.Value,
-                (Measurement)comboBox_Measurement.SelectedItem));
+                (Measurement)comboBox_Measurement.SelectedItem)
+            {
+                Quantity = (int)numericUpDown_quantity.Value,
+            });
 
         private void СheckBox_IsSplitting_CheckedChanged(object sender, EventArgs e)
         {

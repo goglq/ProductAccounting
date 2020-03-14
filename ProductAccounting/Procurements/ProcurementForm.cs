@@ -1,4 +1,5 @@
 ﻿using ProductAccounting.Data.Procurements;
+using ProductAccounting.Data.Products;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +77,7 @@ namespace ProductAccounting.Procurements
             {
                 case DialogResult.Yes:
                     ProcurementsContainer.Instance.Save();
+                    ProductsContainer.Instance.Save();
                     break;
                 case DialogResult.Cancel:
                     e.Cancel = true;

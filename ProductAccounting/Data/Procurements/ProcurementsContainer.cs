@@ -71,7 +71,7 @@ namespace ProductAccounting.Data.Procurements
                 return;
 
             procurements = XElement.Load(SavePath.Instance.ProcurementsSavePath)
-                .Elements("procurements")
+                .Elements("procurement")
                 .Select(node => Procurement.FromXml(node))
                 .ToList();
         }

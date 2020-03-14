@@ -55,14 +55,13 @@ namespace ProductAccounting.Data.Procurements
                         return xElement;
                     })));
 
-        public static Procurement FromXml(XElement xElement) =>
-            new Procurement(
+        public static Procurement FromXml(XElement xElement) => new Procurement(
                 recieveDate: (DateTime)xElement.Element("recieveDate"),
                 paymentDate: (DateTime)xElement.Element("paymentDate"),
                 isRecieved: (bool)xElement.Element("isRecieved"),
-                productsWithPrice: xElement.Elements("products").ToDictionary(
+                productsWithPrice: xElement.Element("products").Elements("product").ToDictionary(
                     product => Product.FromXml(product),
-                    product => (long)product.Element("product").Attribute("price")));
+                    product => (long)product.Attribute("price")));
 
         public override string ToString()
         {

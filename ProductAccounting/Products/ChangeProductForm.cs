@@ -1,7 +1,6 @@
 ﻿using ProductAccounting.Data;
 using ProductAccounting.Data.Products;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -44,10 +43,12 @@ namespace ProductAccounting.Products
                     textBox_Name.Text,
                     textBox_Notes.Text,
                     numericUpDown_Splitting.Value,
-                    (Measurement)comboBox_Measurement.SelectedItem) :
-                new Product(textBox_Name.Text, textBox_Notes.Text);
+                    (Measurement)comboBox_Measurement.SelectedItem)
+                        { Quantity = (int)numericUpDown_quantity.Value } :
+                new Product(textBox_Name.Text, textBox_Notes.Text)
+                        { Quantity = (int)numericUpDown_quantity.Value };
 
-            if(product == (Product)productView.SelectedItems[0].Tag)
+            if (product == (Product)productView.SelectedItems[0].Tag)
             {
                 DialogResult = DialogResult.Cancel;
                 Close();

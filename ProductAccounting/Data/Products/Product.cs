@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace ProductAccounting.Data.Products
@@ -50,7 +51,8 @@ namespace ProductAccounting.Data.Products
                    this.Note == that.Note &&
                    this.IsSplitting == that.IsSplitting &&
                    this.Splitting == that.Splitting &&
-                   this.Measurement == that.Measurement;
+                   this.Measurement == that.Measurement &&
+                   this.Quantity == that.Quantity;
         }
 
         public override int GetHashCode()
@@ -61,6 +63,7 @@ namespace ProductAccounting.Data.Products
             hashCode = hashCode * -1521134295 + IsSplitting.GetHashCode();
             hashCode = hashCode * -1521134295 + Splitting.GetHashCode();
             hashCode = hashCode * -1521134295 + Measurement.GetHashCode();
+            hashCode = hashCode * -1521134295 + Quantity.GetHashCode();
             return hashCode;
         }
 
@@ -77,16 +80,17 @@ namespace ProductAccounting.Data.Products
                     new XElement("splitting", Splitting),
                     new XElement("measurement", (int)Measurement));
 
-        public static Product FromXml(XElement xElement) =>
-            (bool)xElement.Attribute("isSplitting") ? 
+        public static Product FromXml(XElement xElement) => (bool)xElement.Attribute("isSplitting") ?
             new Product(
                 (string)xElement.Element("name"),
                 (string)xElement.Element("note"),
                 (decimal)xElement.Element("splitting"),
-                (Measurement)(int)xElement.Element("measurement")) { Quantity = (int)xElement.Attribute("quantity") } :
+                (Measurement)(int)xElement.Element("measurement"))
+            { Quantity = (int)xElement.Attribute("quantity") } :
             new Product(
-                (string)xElement.Element("name"), 
-                (string)xElement.Element("note")) { Quantity = (int)xElement.Attribute("quantity") };
+                (string)xElement.Element("name"),
+                (string)xElement.Element("note"))
+            { Quantity = (int)xElement.Attribute("quantity") };
 
         public object Clone() => 
             !IsSplitting ? new Product(Name, Note) 

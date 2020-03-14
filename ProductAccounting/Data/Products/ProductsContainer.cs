@@ -34,7 +34,7 @@ namespace ProductAccounting.Data.Products
             IsChanged = true;
             if (products.Contains(product))
             {
-                products[products.IndexOf(product)].Quantity += 1;
+                products[products.IndexOf(product)].Quantity += product.Quantity;
                 return;
             }
 

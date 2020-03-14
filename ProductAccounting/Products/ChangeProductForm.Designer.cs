@@ -43,11 +43,14 @@
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDown_quantity = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Splitting)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -74,6 +77,8 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.numericUpDown_quantity);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.comboBox_Measurement);
@@ -225,6 +230,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Название";
             // 
+            // numericUpDown_quantity
+            // 
+            this.numericUpDown_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDown_quantity.Location = new System.Drawing.Point(152, 112);
+            this.numericUpDown_quantity.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDown_quantity.Name = "numericUpDown_quantity";
+            this.numericUpDown_quantity.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_quantity.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(16, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Количество";
+            // 
             // ChangeProductForm
             // 
             this.AcceptButton = this.button_Change;
@@ -246,6 +275,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,5 +297,7 @@
         private System.Windows.Forms.TextBox textBox_Name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericUpDown_quantity;
     }
 }

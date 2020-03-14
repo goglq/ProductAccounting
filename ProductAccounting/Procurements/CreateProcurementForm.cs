@@ -20,6 +20,13 @@ namespace ProductAccounting.Procurements
 
         private void CreateProcurementForm_Load(object sender, EventArgs e)
         {
+            ProductsContainer.Instance.Load();
+            if (ProductsContainer.Instance.Products.Where(product => product.Quantity != 0).Count() == 0)
+            {
+                MessageBox.Show("Нет товаров, чтобы сделать закупку", "Закупки", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                return;
+            }
             checkBox_recieved.Checked = false;
             dateTimePicker_recieve.Enabled = false;
 
@@ -81,12 +88,24 @@ namespace ProductAccounting.Procurements
 
         private void Button_saveExit_Click(object sender, EventArgs e)
         {
-            procurement = new Procurement(dateTimePicker_recieve.Value, dateTimePicker_payment.Value, products, checkBox_recieved.Checked);
-            if (procurement is null)
-                return;
-            DialogResult = DialogResult.OK;
-            ProcurementsContainer.Instance.Add(procurement);
+            if (products.Count != 0)
+            {
+                procurement = new Procurement(dateTimePicker_recieve.Value, dateTimePicker_payment.Value, products, checkBox_recieved.Checked);
+                if (procurement is null)
+                    return;
+                DialogResult = DialogResult.OK;
+                ProcurementsContainer.Instance.Add(procurement);
+            }
+            ClearForm();
             Close();
+        }
+
+        private void ClearForm()
+        {
+            listView_products.Items.Clear();
+            comboBox_product.Items.Clear();
+            numericUpDown_amount.Value = numericUpDown_amount.Minimum;
+            numericUpDown_price.Value = numericUpDown_price.Minimum;
         }
 
         private void FillListView()
@@ -128,9 +147,13 @@ namespace ProductAccounting.Procurements
 
         private void FillComboBox()
         {
-            ProductsContainer.Instance.Load();
+            comboBox_product.Items.Clear();
             ProductsContainer.Instance.Products.ToList()
-                .ForEach(product => comboBox_product.Items.Add(product));
+                .ForEach(product => {
+                    if (product.Quantity == 0)
+                        return;
+                    comboBox_product.Items.Add(product);
+                });
         }
 
         private void CheckBox_recieved_CheckedChanged(object sender, EventArgs e)
