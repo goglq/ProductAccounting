@@ -126,7 +126,7 @@
             this.button_Menu.TabIndex = 3;
             this.button_Menu.Text = "Главное меню";
             this.button_Menu.UseVisualStyleBackColor = true;
-            this.button_Menu.Click += new System.EventHandler(this.button_Menu_Click);
+            this.button_Menu.Click += new System.EventHandler(this.Button_Menu_Click);
             // 
             // button_Delete
             // 
@@ -136,7 +136,7 @@
             this.button_Delete.TabIndex = 2;
             this.button_Delete.Text = "Удалить";
             this.button_Delete.UseVisualStyleBackColor = true;
-            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            this.button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
             // 
             // button_Change
             // 
@@ -146,7 +146,7 @@
             this.button_Change.TabIndex = 1;
             this.button_Change.Text = "Изменить";
             this.button_Change.UseVisualStyleBackColor = true;
-            this.button_Change.Click += new System.EventHandler(this.button_Click);
+            this.button_Change.Click += new System.EventHandler(this.Button_Click);
             // 
             // button_Add
             // 
@@ -156,7 +156,7 @@
             this.button_Add.TabIndex = 0;
             this.button_Add.Text = "Добавить";
             this.button_Add.UseVisualStyleBackColor = true;
-            this.button_Add.Click += new System.EventHandler(this.button_Click);
+            this.button_Add.Click += new System.EventHandler(this.Button_Click);
             // 
             // ProductsForm
             // 

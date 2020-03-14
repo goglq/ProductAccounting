@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ProductsContainer.cs" />
+    <Compile Include="Data\Procurements\Procurement.cs" />
+    <Compile Include="Data\Procurements\ProcurementsContainer.cs" />
+    <Compile Include="Data\Products\ProductsContainer.cs" />
     <Compile Include="Data\SavePath.cs" />
     <Compile Include="Inventory\InventoryForm.cs">
       <SubType>Form</SubType>
@@ -67,13 +69,25 @@
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procurements\ChangeProcurementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurements\ChangeProcurementForm.Designer.cs">
+      <DependentUpon>ChangeProcurementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Procurements\CreateProcurementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurements\CreateProcurementForm.Designer.cs">
+      <DependentUpon>CreateProcurementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procurements\ProcurementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Procurements\ProcurementForm.Designer.cs">
       <DependentUpon>ProcurementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Product.cs" />
+    <Compile Include="Data\Products\Product.cs" />
     <Compile Include="Products\ChangeProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurements\ChangeProcurementForm.resx">
+      <DependentUpon>ChangeProcurementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurements\CreateProcurementForm.resx">
+      <DependentUpon>CreateProcurementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procurements\ProcurementForm.resx">
       <DependentUpon>ProcurementForm.cs</DependentUpon>

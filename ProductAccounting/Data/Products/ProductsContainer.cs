@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ProductAccounting.Data
+namespace ProductAccounting.Data.Products
 {
     public class ProductsContainer
     {
@@ -31,6 +31,7 @@ namespace ProductAccounting.Data
 
         public void Add(Product product)
         {
+            IsChanged = true;
             if (products.Contains(product))
             {
                 products[products.IndexOf(product)].Quantity += 1;
@@ -38,7 +39,6 @@ namespace ProductAccounting.Data
             }
 
             products.Add(product);
-            IsChanged = true;
         }
 
         public void Change(Product oldProduct, Product changedProduct)

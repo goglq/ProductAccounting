@@ -30,15 +30,15 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.listView_Procurements = new System.Windows.Forms.ListView();
+            this.columnPaymentDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnRecieveDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnProducts = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel = new System.Windows.Forms.Panel();
             this.button_Menu = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Change = new System.Windows.Forms.Button();
             this.button_Add = new System.Windows.Forms.Button();
-            this.columnPaymentDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnRecieveDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnProducts = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -50,14 +50,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.Controls.Add(this.listView_Procurements, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 289);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(847, 356);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // listView_Procurements
@@ -69,64 +70,13 @@
             this.columnPrice});
             this.listView_Procurements.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView_Procurements.HideSelection = false;
-            this.listView_Procurements.Location = new System.Drawing.Point(3, 10);
-            this.listView_Procurements.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.listView_Procurements.Location = new System.Drawing.Point(4, 12);
+            this.listView_Procurements.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
             this.listView_Procurements.Name = "listView_Procurements";
-            this.listView_Procurements.Size = new System.Drawing.Size(479, 276);
+            this.listView_Procurements.Size = new System.Drawing.Size(639, 340);
             this.listView_Procurements.TabIndex = 1;
             this.listView_Procurements.UseCompatibleStateImageBehavior = false;
             this.listView_Procurements.View = System.Windows.Forms.View.Details;
-            // 
-            // panel
-            // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel.Controls.Add(this.button_Menu);
-            this.panel.Controls.Add(this.button_Delete);
-            this.panel.Controls.Add(this.button_Change);
-            this.panel.Controls.Add(this.button_Add);
-            this.panel.Location = new System.Drawing.Point(488, 3);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(144, 283);
-            this.panel.TabIndex = 2;
-            // 
-            // button_Menu
-            // 
-            this.button_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Menu.Location = new System.Drawing.Point(8, 221);
-            this.button_Menu.Name = "button_Menu";
-            this.button_Menu.Size = new System.Drawing.Size(128, 56);
-            this.button_Menu.TabIndex = 3;
-            this.button_Menu.Text = "Главное меню";
-            this.button_Menu.UseVisualStyleBackColor = true;
-            this.button_Menu.Click += new System.EventHandler(this.button_Menu_Click);
-            // 
-            // button_Delete
-            // 
-            this.button_Delete.Location = new System.Drawing.Point(8, 136);
-            this.button_Delete.Name = "button_Delete";
-            this.button_Delete.Size = new System.Drawing.Size(128, 56);
-            this.button_Delete.TabIndex = 2;
-            this.button_Delete.Text = "Удалить";
-            this.button_Delete.UseVisualStyleBackColor = true;
-            // 
-            // button_Change
-            // 
-            this.button_Change.Location = new System.Drawing.Point(8, 72);
-            this.button_Change.Name = "button_Change";
-            this.button_Change.Size = new System.Drawing.Size(128, 56);
-            this.button_Change.TabIndex = 1;
-            this.button_Change.Text = "Изменить";
-            this.button_Change.UseVisualStyleBackColor = true;
-            // 
-            // button_Add
-            // 
-            this.button_Add.Location = new System.Drawing.Point(8, 8);
-            this.button_Add.Name = "button_Add";
-            this.button_Add.Size = new System.Drawing.Size(128, 56);
-            this.button_Add.TabIndex = 0;
-            this.button_Add.Text = "Добавить";
-            this.button_Add.UseVisualStyleBackColor = true;
             // 
             // columnPaymentDate
             // 
@@ -147,15 +97,75 @@
             // 
             this.columnPrice.Text = "Цена";
             // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel.Controls.Add(this.button_Menu);
+            this.panel.Controls.Add(this.button_Delete);
+            this.panel.Controls.Add(this.button_Change);
+            this.panel.Controls.Add(this.button_Add);
+            this.panel.Location = new System.Drawing.Point(651, 4);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(192, 348);
+            this.panel.TabIndex = 2;
+            // 
+            // button_Menu
+            // 
+            this.button_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Menu.Location = new System.Drawing.Point(11, 272);
+            this.button_Menu.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Menu.Name = "button_Menu";
+            this.button_Menu.Size = new System.Drawing.Size(171, 69);
+            this.button_Menu.TabIndex = 3;
+            this.button_Menu.Text = "Главное меню";
+            this.button_Menu.UseVisualStyleBackColor = true;
+            this.button_Menu.Click += new System.EventHandler(this.Button_Menu_Click);
+            // 
+            // button_Delete
+            // 
+            this.button_Delete.Location = new System.Drawing.Point(11, 167);
+            this.button_Delete.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(171, 69);
+            this.button_Delete.TabIndex = 2;
+            this.button_Delete.Text = "Удалить";
+            this.button_Delete.UseVisualStyleBackColor = true;
+            // 
+            // button_Change
+            // 
+            this.button_Change.Location = new System.Drawing.Point(11, 89);
+            this.button_Change.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Change.Name = "button_Change";
+            this.button_Change.Size = new System.Drawing.Size(171, 69);
+            this.button_Change.TabIndex = 1;
+            this.button_Change.Text = "Изменить";
+            this.button_Change.UseVisualStyleBackColor = true;
+            // 
+            // button_Add
+            // 
+            this.button_Add.Location = new System.Drawing.Point(11, 10);
+            this.button_Add.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Add.Name = "button_Add";
+            this.button_Add.Size = new System.Drawing.Size(171, 69);
+            this.button_Add.TabIndex = 0;
+            this.button_Add.Text = "Добавить";
+            this.button_Add.UseVisualStyleBackColor = true;
+            this.button_Add.Click += new System.EventHandler(this.Button_Click);
+            // 
             // ProcurementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 288);
+            this.ClientSize = new System.Drawing.Size(849, 354);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(653, 327);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(865, 392);
             this.Name = "ProcurementForm";
             this.Text = "Закупки";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProcurementForm_FormClosing);
+            this.Load += new System.EventHandler(this.ProcurementForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             this.ResumeLayout(false);

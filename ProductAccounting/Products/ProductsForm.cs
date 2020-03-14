@@ -1,4 +1,5 @@
 ﻿using ProductAccounting.Data;
+using ProductAccounting.Data.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,12 +28,12 @@ namespace ProductAccounting.Products
             FillListView();
         }
 
-        private void button_Menu_Click(object sender, EventArgs e)
+        private void Button_Menu_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             if((Button)sender == button_Change && listView_Products.SelectedItems.Count == 0)
             {
@@ -45,7 +46,7 @@ namespace ProductAccounting.Products
             FillListView();
         }
 
-        private void button_Delete_Click(object sender, EventArgs e)
+        private void Button_Delete_Click(object sender, EventArgs e)
         {
             if (DialogResult.Yes != MessageBox.Show($"Удалить товар: ", "Подтвердите", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 return;

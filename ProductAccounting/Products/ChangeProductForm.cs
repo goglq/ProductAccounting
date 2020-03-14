@@ -1,4 +1,5 @@
 ﻿using ProductAccounting.Data;
+using ProductAccounting.Data.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace ProductAccounting.Products
             Close();
         }
 
-        private void button_Cancel_Click(object sender, EventArgs e)
+        private void Button_Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();

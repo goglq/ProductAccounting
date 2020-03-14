@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace ProductAccounting.Data
+namespace ProductAccounting.Data.Products
 {
-    public class Product
+    public class Product : ICloneable
     {
         public string Name { get; set; }
 
@@ -23,7 +23,7 @@ namespace ProductAccounting.Data
 
         public Product(string name, string note)
         {
-            Quantity = 1;
+            Quantity = 0;
             Name = name;
             Note = note;
             IsSplitting = false;
@@ -41,6 +41,8 @@ namespace ProductAccounting.Data
         public override bool Equals(object obj)
         {
             if (obj is null)
+                return false;
+            if (obj is System.DBNull)
                 return false;
 
             var that = obj as Product;
@@ -85,5 +87,9 @@ namespace ProductAccounting.Data
             new Product(
                 (string)xElement.Element("name"), 
                 (string)xElement.Element("note")) { Quantity = (int)xElement.Attribute("quantity") };
+
+        public object Clone() => 
+            !IsSplitting ? new Product(Name, Note) 
+            : new Product(Name, Note, Splitting, Measurement);
     }
 }
