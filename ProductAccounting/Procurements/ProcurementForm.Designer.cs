@@ -69,6 +69,7 @@
             this.columnPrice});
             this.listView_Procurements.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView_Procurements.FullRowSelect = true;
+            this.listView_Procurements.GridLines = true;
             this.listView_Procurements.HideSelection = false;
             this.listView_Procurements.Location = new System.Drawing.Point(3, 10);
             this.listView_Procurements.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);

@@ -46,10 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Oddments\Oddment.cs" />
+    <Compile Include="Data\Oddments\OddmentsContainer.cs" />
     <Compile Include="Data\Procurements\Procurement.cs" />
     <Compile Include="Data\Procurements\ProcurementsContainer.cs" />
     <Compile Include="Data\Products\ProductsContainer.cs" />
     <Compile Include="Data\SavePath.cs" />
+    <Compile Include="Data\WriteOffs\WriteOff.cs" />
+    <Compile Include="Data\WriteOffs\WriteOffsContainer.cs" />
     <Compile Include="Inventory\InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>

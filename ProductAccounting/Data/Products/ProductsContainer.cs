@@ -31,13 +31,10 @@ namespace ProductAccounting.Data.Products
 
         public void Add(Product product)
         {
-            IsChanged = true;
-            if (products.Contains(product))
-            {
-                products[products.IndexOf(product)].Quantity += product.Quantity;
+            if (Products.Contains(product))
                 return;
-            }
 
+            IsChanged = true;
             products.Add(product);
         }
 

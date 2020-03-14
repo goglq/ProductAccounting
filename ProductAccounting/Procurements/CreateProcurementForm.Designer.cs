@@ -73,11 +73,11 @@
             this.tableLayoutPanel.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(604, 373);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(703, 417);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // panel2
@@ -93,16 +93,21 @@
             this.panel2.Controls.Add(this.numericUpDown_amount);
             this.panel2.Controls.Add(this.comboBox_product);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(381, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(480, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(221, 369);
+            this.panel2.Size = new System.Drawing.Size(221, 413);
             this.panel2.TabIndex = 1;
             // 
             // numericUpDown_price
             // 
             this.numericUpDown_price.Location = new System.Drawing.Point(81, 107);
-            this.numericUpDown_price.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown_price.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown_price.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.numericUpDown_price.Name = "numericUpDown_price";
             this.numericUpDown_price.Size = new System.Drawing.Size(126, 20);
             this.numericUpDown_price.TabIndex = 10;
@@ -151,8 +156,8 @@
             // button_saveExit
             // 
             this.button_saveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_saveExit.Location = new System.Drawing.Point(10, 303);
-            this.button_saveExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_saveExit.Location = new System.Drawing.Point(10, 347);
+            this.button_saveExit.Margin = new System.Windows.Forms.Padding(2);
             this.button_saveExit.Name = "button_saveExit";
             this.button_saveExit.Size = new System.Drawing.Size(198, 51);
             this.button_saveExit.TabIndex = 4;
@@ -164,7 +169,7 @@
             // 
             this.button_remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_remove.Location = new System.Drawing.Point(10, 214);
-            this.button_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_remove.Margin = new System.Windows.Forms.Padding(2);
             this.button_remove.Name = "button_remove";
             this.button_remove.Size = new System.Drawing.Size(198, 49);
             this.button_remove.TabIndex = 3;
@@ -176,7 +181,7 @@
             // 
             this.button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_add.Location = new System.Drawing.Point(10, 156);
-            this.button_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_add.Margin = new System.Windows.Forms.Padding(2);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(198, 49);
             this.button_add.TabIndex = 2;
@@ -188,9 +193,9 @@
             // 
             this.numericUpDown_amount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown_amount.Location = new System.Drawing.Point(82, 78);
-            this.numericUpDown_amount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown_amount.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown_amount.Maximum = new decimal(new int[] {
-            1000000000,
+            1000000,
             0,
             0,
             0});
@@ -214,11 +219,10 @@
             this.comboBox_product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_product.FormattingEnabled = true;
             this.comboBox_product.Location = new System.Drawing.Point(82, 39);
-            this.comboBox_product.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox_product.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox_product.Name = "comboBox_product";
             this.comboBox_product.Size = new System.Drawing.Size(127, 21);
             this.comboBox_product.TabIndex = 0;
-            this.comboBox_product.SelectedValueChanged += new System.EventHandler(this.ComboBox_product_SelectedValueChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -230,12 +234,12 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 369);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(474, 413);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -244,9 +248,9 @@
             this.panel1.Controls.Add(this.listView_products);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(371, 267);
+            this.panel1.Size = new System.Drawing.Size(470, 311);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -268,11 +272,12 @@
             this.columnHeader_product,
             this.columnHeader_amount,
             this.columnHeader_priceper1});
+            this.listView_products.FullRowSelect = true;
             this.listView_products.HideSelection = false;
             this.listView_products.Location = new System.Drawing.Point(72, 20);
-            this.listView_products.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_products.Margin = new System.Windows.Forms.Padding(2);
             this.listView_products.Name = "listView_products";
-            this.listView_products.Size = new System.Drawing.Size(291, 241);
+            this.listView_products.Size = new System.Drawing.Size(390, 285);
             this.listView_products.TabIndex = 0;
             this.listView_products.UseCompatibleStateImageBehavior = false;
             this.listView_products.View = System.Windows.Forms.View.Details;
@@ -286,13 +291,13 @@
             // 
             this.columnHeader_amount.Text = "Штук";
             this.columnHeader_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader_amount.Width = 72;
+            this.columnHeader_amount.Width = 82;
             // 
             // columnHeader_priceper1
             // 
             this.columnHeader_priceper1.Text = "Цена за штуку";
             this.columnHeader_priceper1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader_priceper1.Width = 120;
+            this.columnHeader_priceper1.Width = 100;
             // 
             // panel3
             // 
@@ -302,17 +307,17 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.dateTimePicker_payment);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(2, 273);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(2, 317);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(371, 94);
+            this.panel3.Size = new System.Drawing.Size(470, 94);
             this.panel3.TabIndex = 1;
             // 
             // checkBox_recieved
             // 
             this.checkBox_recieved.AutoSize = true;
             this.checkBox_recieved.Location = new System.Drawing.Point(72, 39);
-            this.checkBox_recieved.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_recieved.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_recieved.Name = "checkBox_recieved";
             this.checkBox_recieved.Size = new System.Drawing.Size(68, 17);
             this.checkBox_recieved.TabIndex = 6;
@@ -336,9 +341,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker_recieve.Location = new System.Drawing.Point(72, 58);
-            this.dateTimePicker_recieve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker_recieve.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_recieve.Name = "dateTimePicker_recieve";
-            this.dateTimePicker_recieve.Size = new System.Drawing.Size(287, 20);
+            this.dateTimePicker_recieve.Size = new System.Drawing.Size(386, 20);
             this.dateTimePicker_recieve.TabIndex = 2;
             // 
             // label2
@@ -357,18 +362,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker_payment.Location = new System.Drawing.Point(72, 10);
-            this.dateTimePicker_payment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker_payment.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_payment.Name = "dateTimePicker_payment";
-            this.dateTimePicker_payment.Size = new System.Drawing.Size(287, 20);
+            this.dateTimePicker_payment.Size = new System.Drawing.Size(386, 20);
             this.dateTimePicker_payment.TabIndex = 1;
             // 
             // CreateProcurementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 368);
+            this.ClientSize = new System.Drawing.Size(701, 412);
             this.Controls.Add(this.tableLayoutPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CreateProcurementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавить закупку";

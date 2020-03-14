@@ -42,7 +42,7 @@ namespace ProductAccounting.Products
                 textBox_Name.Text,
                 textBox_Notes.Text)
             {
-                Quantity = (int)numericUpDown_quantity.Value,
+                LessQuantity = (int)numericUpDown_quantity.Value,
             });
 
         private void AddSplittingProduct() => ProductsContainer.Instance.Add(new Product(
@@ -51,7 +51,7 @@ namespace ProductAccounting.Products
                 numericUpDown_Splitting.Value,
                 (Measurement)comboBox_Measurement.SelectedItem)
             {
-                Quantity = (int)numericUpDown_quantity.Value,
+                LessQuantity = (int)numericUpDown_quantity.Value,
             });
 
         private void СheckBox_IsSplitting_CheckedChanged(object sender, EventArgs e)

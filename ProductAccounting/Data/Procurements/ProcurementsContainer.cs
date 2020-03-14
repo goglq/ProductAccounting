@@ -40,18 +40,6 @@ namespace ProductAccounting.Data.Procurements
 
         public void Delete(Procurement procurement)
         {
-            procurement.ProductsWithPrice.Keys.ToList().ForEach(product => {
-                Product productOnStock = ProductsContainer.Instance.Products.Where(productStock => 
-                    productStock.Name == product.Name &&
-                    productStock.Note == product.Note &&
-                    productStock.Measurement == product.Measurement &&
-                    productStock.IsSplitting == product.IsSplitting &&
-                    productStock.Splitting == product.Splitting
-                ).First();
-
-                productOnStock.Quantity += product.Quantity;
-            });
-
             procurements.Remove(procurement);
 
             IsChanged = true;

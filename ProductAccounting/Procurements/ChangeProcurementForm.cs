@@ -2,12 +2,9 @@
 using ProductAccounting.Data.Products;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductAccounting.Procurements
@@ -41,11 +38,7 @@ namespace ProductAccounting.Procurements
             if (soledProduct is null)
                 throw new ArgumentNullException("Ошибка! Клонированный продукт равен null");
 
-            if (soledProduct.Quantity > productOnStock.Quantity)
-                throw new ArgumentException("Количество закупаемого продукта превышает количество товара на скаде.");
-
             AddProductWithPrice(soledProduct);
-            ChangeMaximumProductQuantity();
             RefreshListView();
             comboBox_product.BackColor = Color.White;
         }
@@ -59,12 +52,12 @@ namespace ProductAccounting.Procurements
             RefreshListView();
 
             FillComboBox();
-
             listView_products.Items[0].Selected = true;
         }
 
         private void GetProcurementProducts()
         {
+            products.Clear();
             Procurement = (Procurement)listView.SelectedItems[0].Tag;
             Procurement.ProductsWithPrice
                 .Select(keyValue => new KeyValuePair<Product, long>(keyValue.Key, keyValue.Value))
@@ -75,7 +68,6 @@ namespace ProductAccounting.Procurements
         private void AddProductWithPrice(Product soledProduct)
         {
             Product productOnStock = (Product)comboBox_product.SelectedItem;
-            productOnStock.Quantity -= (int)numericUpDown_amount.Value;
             soledProduct.Quantity += (int)numericUpDown_amount.Value;
             if (!products.ContainsKey(soledProduct))
             {
@@ -93,7 +85,7 @@ namespace ProductAccounting.Procurements
             Product sellProduct = (Product)listView_products.SelectedItems[0].Tag;
             Product productOnStock = ProductsContainer.Instance.Products
                 .Where(product => 
-                sellProduct.Name == product.Name 
+                sellProduct.Name == product.Name
                 && sellProduct.Note == product.Note
                 && sellProduct.Measurement == product.Measurement
                 && sellProduct.Splitting == product.Splitting
@@ -145,19 +137,6 @@ namespace ProductAccounting.Procurements
         private void CreateProcurementForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             products.Clear();
-        }
-
-        private void ComboBox_product_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (comboBox_product.SelectedIndex == -1)
-                return;
-            ChangeMaximumProductQuantity();
-        }
-
-        private void ChangeMaximumProductQuantity()
-        {
-            Product selectedProduct = (Product)comboBox_product.SelectedItem;
-            numericUpDown_amount.Maximum = selectedProduct.Quantity;
         }
 
         private void FillComboBox()

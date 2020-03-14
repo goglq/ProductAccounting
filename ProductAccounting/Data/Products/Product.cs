@@ -20,10 +20,13 @@ namespace ProductAccounting.Data.Products
 
         public Measurement Measurement { get; set; }
 
+        public int LessQuantity { get; set; }
+
         public int Quantity { get; set; }
 
         public Product(string name, string note)
         {
+            LessQuantity = 1;
             Quantity = 0;
             Name = name;
             Note = note;
@@ -52,7 +55,7 @@ namespace ProductAccounting.Data.Products
                    this.IsSplitting == that.IsSplitting &&
                    this.Splitting == that.Splitting &&
                    this.Measurement == that.Measurement &&
-                   this.Quantity == that.Quantity;
+                   this.LessQuantity == that.LessQuantity;
         }
 
         public override int GetHashCode()
@@ -74,7 +77,8 @@ namespace ProductAccounting.Data.Products
             new XElement(
                     "product",
                     new XAttribute("isSplitting", IsSplitting),
-                    new XAttribute("quantity", Quantity),
+                    new XAttribute("lessQuantity", LessQuantity),
+                    new XElement("quantity", Quantity),
                     new XElement("name", Name),
                     new XElement("note", Note),
                     new XElement("splitting", Splitting),
@@ -86,11 +90,11 @@ namespace ProductAccounting.Data.Products
                 (string)xElement.Element("note"),
                 (decimal)xElement.Element("splitting"),
                 (Measurement)(int)xElement.Element("measurement"))
-            { Quantity = (int)xElement.Attribute("quantity") } :
+            { Quantity = (int)xElement.Element("quantity"), LessQuantity = (int)xElement.Attribute("lessQuantity") } :
             new Product(
                 (string)xElement.Element("name"),
                 (string)xElement.Element("note"))
-            { Quantity = (int)xElement.Attribute("quantity") };
+            { Quantity = (int)xElement.Element("quantity"), LessQuantity = (int)xElement.Attribute("lessQuantity") };
 
         public object Clone() => 
             !IsSplitting ? new Product(Name, Note) 

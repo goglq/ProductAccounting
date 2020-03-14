@@ -103,6 +103,11 @@
             // 
             this.numericUpDown_price.Location = new System.Drawing.Point(81, 107);
             this.numericUpDown_price.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown_price.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.numericUpDown_price.Name = "numericUpDown_price";
             this.numericUpDown_price.Size = new System.Drawing.Size(126, 20);
             this.numericUpDown_price.TabIndex = 10;
@@ -217,7 +222,6 @@
             this.comboBox_product.Name = "comboBox_product";
             this.comboBox_product.Size = new System.Drawing.Size(127, 21);
             this.comboBox_product.TabIndex = 0;
-            this.comboBox_product.SelectedValueChanged += new System.EventHandler(this.ComboBox_product_SelectedValueChanged);
             // 
             // tableLayoutPanel1
             // 

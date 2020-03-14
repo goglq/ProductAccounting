@@ -16,17 +16,12 @@ namespace ProductAccounting.Procurements
         public CreateProcurementForm()
         {
             InitializeComponent();
+            numericUpDown_amount.Maximum = int.MaxValue;
         }
 
         private void CreateProcurementForm_Load(object sender, EventArgs e)
         {
             ProductsContainer.Instance.Load();
-            if (ProductsContainer.Instance.Products.Where(product => product.Quantity != 0).Count() == 0)
-            {
-                MessageBox.Show("Нет товаров, чтобы сделать закупку", "Закупки", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                return;
-            }
             checkBox_recieved.Checked = false;
             dateTimePicker_recieve.Enabled = false;
 
@@ -46,15 +41,12 @@ namespace ProductAccounting.Procurements
 
             Product productOnStock = (Product)comboBox_product.SelectedItem;
             Product soledProduct = productOnStock.Clone() as Product;
+            soledProduct.LessQuantity = productOnStock.LessQuantity;
             
             if (soledProduct is null)
                 throw new ArgumentNullException("Ошибка! Клонированный продукт равен null");
-
-            if (soledProduct.Quantity > productOnStock.Quantity)
-                throw new ArgumentException("Количество закупаемого продукта превышает количество товара на скаде.");
             
             AddProductWithPrice(soledProduct);
-            ChangeMaximumProductQuantity();
             FillListView();
             comboBox_product.BackColor = Color.White;
         }
@@ -62,7 +54,6 @@ namespace ProductAccounting.Procurements
         private void AddProductWithPrice(Product soledProduct)
         {
             Product productOnStock = (Product)comboBox_product.SelectedItem;
-            productOnStock.Quantity -= (int)numericUpDown_amount.Value;
             soledProduct.Quantity += (int)numericUpDown_amount.Value;
             if (!products.ContainsKey(soledProduct))
             {
@@ -77,8 +68,8 @@ namespace ProductAccounting.Procurements
         {
             if (listView_products.SelectedItems.Count == 0)
                 return;
-            Product sellProduct = (Product)listView_products.SelectedItems[0].Tag;
 
+            Product sellProduct = (Product)listView_products.SelectedItems[0].Tag;
             Product productOnStock = (Product)comboBox_product.SelectedItem;
             productOnStock.Quantity += sellProduct.Quantity;
 
@@ -96,6 +87,7 @@ namespace ProductAccounting.Procurements
                 DialogResult = DialogResult.OK;
                 ProcurementsContainer.Instance.Add(procurement);
             }
+
             ClearForm();
             Close();
         }
@@ -132,26 +124,11 @@ namespace ProductAccounting.Procurements
             products.Clear();
         }
 
-        private void ComboBox_product_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (comboBox_product.SelectedIndex == -1)
-                return;
-            ChangeMaximumProductQuantity();
-        }
-
-        private void ChangeMaximumProductQuantity()
-        {
-            Product selectedProduct = (Product)comboBox_product.SelectedItem;
-            numericUpDown_amount.Maximum = selectedProduct.Quantity;
-        }
-
         private void FillComboBox()
         {
             comboBox_product.Items.Clear();
             ProductsContainer.Instance.Products.ToList()
                 .ForEach(product => {
-                    if (product.Quantity == 0)
-                        return;
                     comboBox_product.Items.Add(product);
                 });
         }

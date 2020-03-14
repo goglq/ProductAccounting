@@ -69,7 +69,7 @@ namespace ProductAccounting.Products
             item.SubItems.Add(product.Note);
             item.SubItems.Add(product.IsSplitting ? product.Splitting.ToString() : "Нет");
             item.SubItems.Add(product.IsSplitting ? product.Measurement.ToString() : "...");
-            item.SubItems.Add(product.Quantity.ToString());
+            item.SubItems.Add(product.LessQuantity.ToString());
             item.Tag = product;
             listView_Products.Items.Add(item);
         }
