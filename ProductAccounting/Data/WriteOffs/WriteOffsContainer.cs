@@ -36,10 +36,29 @@ namespace ProductAccounting.Data.WriteOffs
 
         public void Delete(WriteOff writeOff)
         {
+            if (!writeOffs.Contains(writeOff))
+                throw new ArgumentException("Такого списания не сущетсвует");
+
+            writeOffs.Remove(writeOff);
+        }
+
+        //public void Change(WriteOff oldWriteOff, WriteOff newWriteOff)
+        //{
+        //    if (!Procurements.Contains(oldWriteOff))
+        //        return;
+        //    if (oldWriteOff == newWriteOff)
+        //        return;
+
+        //    procurements[procurements.IndexOf(oldProcurement)] = newProcurement;
+        //    IsChanged = true;
+        //}
+
+        public void Save()
+        {
 
         }
 
-        public void Change(WriteOff oldWriteOff, WriteOff newWriteOff)
+        public void Load()
         {
 
         }

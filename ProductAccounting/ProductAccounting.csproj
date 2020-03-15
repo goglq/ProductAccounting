@@ -112,6 +112,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WriteOffs\ChangeWriteOffsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteOffs\ChangeWriteOffsForm.Designer.cs">
+      <DependentUpon>ChangeWriteOffsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteOffs\CreateWriteOffsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteOffs\CreateWriteOffsForm.Designer.cs">
+      <DependentUpon>CreateWriteOffsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteOffs\WriteOffsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WriteOffs\ChangeWriteOffsForm.resx">
+      <DependentUpon>ChangeWriteOffsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteOffs\CreateWriteOffsForm.resx">
+      <DependentUpon>CreateWriteOffsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WriteOffs\WriteOffsForm.resx">
       <DependentUpon>WriteOffsForm.cs</DependentUpon>
     </EmbeddedResource>

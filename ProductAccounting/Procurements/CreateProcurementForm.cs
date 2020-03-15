@@ -47,7 +47,7 @@ namespace ProductAccounting.Procurements
                 throw new ArgumentNullException("Ошибка! Клонированный продукт равен null");
             
             AddProductWithPrice(soledProduct);
-            FillListView();
+            RefreshListView();
             comboBox_product.BackColor = Color.White;
         }
 
@@ -74,7 +74,7 @@ namespace ProductAccounting.Procurements
             productOnStock.Quantity += sellProduct.Quantity;
 
             products.Remove(sellProduct);
-            FillListView();
+            RefreshListView();
         }
 
         private void Button_saveExit_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace ProductAccounting.Procurements
             numericUpDown_price.Value = numericUpDown_price.Minimum;
         }
 
-        private void FillListView()
+        private void RefreshListView()
         {
             listView_products.Items.Clear();
             foreach (KeyValuePair<Product, long> product_and_price in products)

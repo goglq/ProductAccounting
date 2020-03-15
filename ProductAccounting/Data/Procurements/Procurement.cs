@@ -65,7 +65,6 @@ namespace ProductAccounting.Data.Procurements
 
         public override string ToString()
         {
-            IList<string> order = new List<string>();
             string str = "";
             ProductsWithPrice
                 .Select(keyValue => keyValue.Key).ToList()

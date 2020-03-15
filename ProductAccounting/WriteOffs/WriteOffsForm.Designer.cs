@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.listView_WriteOffs = new System.Windows.Forms.ListView();
+            this.columnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnMaster = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnProducts = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel = new System.Windows.Forms.Panel();
             this.button_Menu = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Change = new System.Windows.Forms.Button();
             this.button_Add = new System.Windows.Forms.Button();
-            this.columnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnMaster = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnProducts = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,20 @@
             this.listView_WriteOffs.UseCompatibleStateImageBehavior = false;
             this.listView_WriteOffs.View = System.Windows.Forms.View.Details;
             // 
+            // columnDate
+            // 
+            this.columnDate.Text = "Дата";
+            // 
+            // columnMaster
+            // 
+            this.columnMaster.Text = "Мастер";
+            this.columnMaster.Width = 100;
+            // 
+            // columnProducts
+            // 
+            this.columnProducts.Text = "Товары";
+            this.columnProducts.Width = 310;
+            // 
             // panel
             // 
             this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -107,6 +121,7 @@
             this.button_Delete.TabIndex = 2;
             this.button_Delete.Text = "Удалить";
             this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // button_Change
             // 
@@ -116,6 +131,7 @@
             this.button_Change.TabIndex = 1;
             this.button_Change.Text = "Изменить";
             this.button_Change.UseVisualStyleBackColor = true;
+            this.button_Change.Click += new System.EventHandler(this.button_Click);
             // 
             // button_Add
             // 
@@ -125,20 +141,7 @@
             this.button_Add.TabIndex = 0;
             this.button_Add.Text = "Добавить";
             this.button_Add.UseVisualStyleBackColor = true;
-            // 
-            // columnDate
-            // 
-            this.columnDate.Text = "Дата";
-            // 
-            // columnMaster
-            // 
-            this.columnMaster.Text = "Мастер";
-            this.columnMaster.Width = 100;
-            // 
-            // columnProducts
-            // 
-            this.columnProducts.Text = "Товары";
-            this.columnProducts.Width = 310;
+            this.button_Add.Click += new System.EventHandler(this.button_Click);
             // 
             // WriteOffsForm
             // 
