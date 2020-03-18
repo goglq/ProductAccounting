@@ -18,6 +18,8 @@ namespace ProductAccounting.Data.Products
 
         public decimal Splitting { get; set; }
 
+        public int AmountInMeasurement { get; set; }
+
         public Measurement Measurement { get; set; }
 
         public int LessQuantity { get; set; }
@@ -26,6 +28,7 @@ namespace ProductAccounting.Data.Products
 
         public Product(string name, string note)
         {
+            AmountInMeasurement = 0;
             LessQuantity = 1;
             Quantity = 0;
             Name = name;

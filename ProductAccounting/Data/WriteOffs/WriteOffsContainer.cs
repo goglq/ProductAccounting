@@ -42,16 +42,16 @@ namespace ProductAccounting.Data.WriteOffs
             writeOffs.Remove(writeOff);
         }
 
-        //public void Change(WriteOff oldWriteOff, WriteOff newWriteOff)
-        //{
-        //    if (!Procurements.Contains(oldWriteOff))
-        //        return;
-        //    if (oldWriteOff == newWriteOff)
-        //        return;
+        public void Change(WriteOff oldWriteOff, WriteOff newWriteOff)
+        {
+            if (!writeOffs.Contains(oldWriteOff))
+                return;
+            if (oldWriteOff == newWriteOff)
+                return;
 
-        //    procurements[procurements.IndexOf(oldProcurement)] = newProcurement;
-        //    IsChanged = true;
-        //}
+            writeOffs[writeOffs.IndexOf(oldWriteOff)] = newWriteOff;
+            IsChanged = true;
+        }
 
         public void Save()
         {

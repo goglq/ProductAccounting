@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label_measurement = new System.Windows.Forms.Label();
             this.numericUpDown_used = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.button_saveExit = new System.Windows.Forms.Button();
             this.button_remove = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
+            this.comboBox_product = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,11 +46,10 @@
             this.columnHeader_product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox_master = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker_writeOffDate = new System.Windows.Forms.DateTimePicker();
-            this.comboBox_product = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox_master = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_used)).BeginInit();
@@ -77,6 +78,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label_measurement);
             this.panel2.Controls.Add(this.numericUpDown_used);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
@@ -92,9 +94,18 @@
             this.panel2.Size = new System.Drawing.Size(221, 465);
             this.panel2.TabIndex = 1;
             // 
+            // label_measurement
+            // 
+            this.label_measurement.AutoSize = true;
+            this.label_measurement.Location = new System.Drawing.Point(128, 136);
+            this.label_measurement.Name = "label_measurement";
+            this.label_measurement.Size = new System.Drawing.Size(35, 13);
+            this.label_measurement.TabIndex = 12;
+            this.label_measurement.Text = "label3";
+            // 
             // numericUpDown_used
             // 
-            this.numericUpDown_used.Location = new System.Drawing.Point(96, 120);
+            this.numericUpDown_used.Location = new System.Drawing.Point(8, 136);
             this.numericUpDown_used.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown_used.Maximum = new decimal(new int[] {
             1000000000,
@@ -145,28 +156,43 @@
             this.button_saveExit.TabIndex = 4;
             this.button_saveExit.Text = "Сохранить и выйти";
             this.button_saveExit.UseVisualStyleBackColor = true;
+            this.button_saveExit.Click += new System.EventHandler(this.Button_saveExit_Click);
             // 
             // button_remove
             // 
             this.button_remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_remove.Location = new System.Drawing.Point(8, 208);
+            this.button_remove.Location = new System.Drawing.Point(8, 240);
             this.button_remove.Margin = new System.Windows.Forms.Padding(2);
             this.button_remove.Name = "button_remove";
             this.button_remove.Size = new System.Drawing.Size(198, 49);
             this.button_remove.TabIndex = 3;
             this.button_remove.Text = "Удалить";
             this.button_remove.UseVisualStyleBackColor = true;
+            this.button_remove.Click += new System.EventHandler(this.Button_remove_Click);
             // 
             // button_add
             // 
             this.button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_add.Location = new System.Drawing.Point(8, 152);
+            this.button_add.Location = new System.Drawing.Point(8, 184);
             this.button_add.Margin = new System.Windows.Forms.Padding(2);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(198, 49);
             this.button_add.TabIndex = 2;
             this.button_add.Text = "Добавить";
             this.button_add.UseVisualStyleBackColor = true;
+            this.button_add.Click += new System.EventHandler(this.Button_add_Click);
+            // 
+            // comboBox_product
+            // 
+            this.comboBox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_product.FormattingEnabled = true;
+            this.comboBox_product.Location = new System.Drawing.Point(96, 88);
+            this.comboBox_product.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox_product.Name = "comboBox_product";
+            this.comboBox_product.Size = new System.Drawing.Size(112, 21);
+            this.comboBox_product.TabIndex = 0;
+            this.comboBox_product.SelectedValueChanged += new System.EventHandler(this.ComboBox_product_SelectedValueChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -249,6 +275,22 @@
             this.panel3.Size = new System.Drawing.Size(577, 76);
             this.panel3.TabIndex = 1;
             // 
+            // textBox_master
+            // 
+            this.textBox_master.Location = new System.Drawing.Point(88, 8);
+            this.textBox_master.Name = "textBox_master";
+            this.textBox_master.Size = new System.Drawing.Size(480, 20);
+            this.textBox_master.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Имя мастера";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -270,33 +312,6 @@
             this.dateTimePicker_writeOffDate.Size = new System.Drawing.Size(480, 20);
             this.dateTimePicker_writeOffDate.TabIndex = 1;
             // 
-            // comboBox_product
-            // 
-            this.comboBox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_product.FormattingEnabled = true;
-            this.comboBox_product.Location = new System.Drawing.Point(96, 88);
-            this.comboBox_product.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox_product.Name = "comboBox_product";
-            this.comboBox_product.Size = new System.Drawing.Size(112, 21);
-            this.comboBox_product.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Имя мастера";
-            // 
-            // textBox1
-            // 
-            this.textBox_master.Location = new System.Drawing.Point(88, 8);
-            this.textBox_master.Name = "textBox1";
-            this.textBox_master.Size = new System.Drawing.Size(480, 20);
-            this.textBox_master.TabIndex = 6;
-            // 
             // CreateWriteOffsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +320,7 @@
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "CreateWriteOffsForm";
             this.Text = "Добавить списание";
+            this.Load += new System.EventHandler(this.CreateWriteOffForm_Load);
             this.tableLayoutPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -341,5 +357,6 @@
         private System.Windows.Forms.ComboBox comboBox_product;
         private System.Windows.Forms.TextBox textBox_master;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_measurement;
     }
 }

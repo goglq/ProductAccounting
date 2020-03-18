@@ -66,6 +66,7 @@
             this.columnMaster,
             this.columnProducts});
             this.listView_WriteOffs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView_WriteOffs.FullRowSelect = true;
             this.listView_WriteOffs.HideSelection = false;
             this.listView_WriteOffs.Location = new System.Drawing.Point(3, 10);
             this.listView_WriteOffs.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);

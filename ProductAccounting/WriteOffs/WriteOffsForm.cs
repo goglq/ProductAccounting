@@ -22,7 +22,7 @@ namespace ProductAccounting.WriteOffs
             dialogs = new Dictionary<Button, Form>()
             {
                 { button_Add, new CreateWriteOffsForm() },
-                { button_Change, new ChangeWriteOffsForm() },
+                { button_Change, new ChangeWriteOffsForm(listView_WriteOffs) },
             };
         }
 
