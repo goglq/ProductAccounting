@@ -26,6 +26,12 @@ namespace ProductAccounting.WriteOffs
             };
         }
 
+        private void WriteOffsForm_Load(object sender, EventArgs e)
+        {
+            WriteOffsContainer.Instance.Load();
+            RefreshListView();
+        }
+
         private void button_Menu_Click(object sender, EventArgs e)
         {
             Close();
@@ -41,10 +47,10 @@ namespace ProductAccounting.WriteOffs
             if (DialogResult.Cancel == dialogs[(Button)sender].ShowDialog())
                 return;
 
-            FillListView();
+            RefreshListView();
         }
 
-        private void FillListView()
+        private void RefreshListView()
         {
             listView_WriteOffs.Items.Clear();
             WriteOffsContainer.Instance.WriteOffs.ToList().ForEach(product => AddProductToListView(product));
@@ -67,7 +73,7 @@ namespace ProductAccounting.WriteOffs
                 throw new ArgumentException("Ошибка! Передана переменная неправильного типа");
 
             WriteOffsContainer.Instance.Delete((WriteOff)listView_WriteOffs.SelectedItems[0].Tag);
-            FillListView();
+            RefreshListView();
         }
 
         private void WriteOffsForm_FormClosing(object sender, FormClosingEventArgs e)

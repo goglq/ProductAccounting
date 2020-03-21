@@ -53,8 +53,10 @@ namespace ProductAccounting.Procurements
 
         private void AddProductWithPrice(Product soledProduct)
         {
-            Product productOnStock = (Product)comboBox_product.SelectedItem;
             soledProduct.Quantity += (int)numericUpDown_amount.Value;
+            if (soledProduct.IsSplitting)
+                soledProduct.AmountInMeasurement = soledProduct.Quantity * (int)soledProduct.Splitting;
+
             if (!products.ContainsKey(soledProduct))
             {
                 products.Add(soledProduct, (long)numericUpDown_price.Value);

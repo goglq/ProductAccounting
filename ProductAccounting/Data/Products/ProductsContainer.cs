@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductAccounting.Data.Oddments;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace ProductAccounting.Data.Products
 
             IsChanged = true;
             products.Add(product);
+            OddmentsContainer.Instance.Update();
         }
 
         public void Change(Product oldProduct, Product changedProduct)
@@ -48,11 +50,13 @@ namespace ProductAccounting.Data.Products
             products[products.IndexOf(oldProduct)] = changedProduct;
 
             IsChanged = true;
+            OddmentsContainer.Instance.Update();
         }
 
         public void Delete(Product product) {
             products.Remove(product);
             IsChanged = true;
+            OddmentsContainer.Instance.Update();
         }
 
         public void Save()

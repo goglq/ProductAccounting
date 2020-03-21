@@ -152,7 +152,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(653, 327);
             this.Name = "WriteOffsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Списания";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WriteOffsForm_FormClosing);
+            this.Load += new System.EventHandler(this.WriteOffsForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             this.ResumeLayout(false);

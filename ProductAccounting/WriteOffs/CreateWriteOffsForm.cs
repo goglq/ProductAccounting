@@ -26,6 +26,8 @@ namespace ProductAccounting.WriteOffs
 
             comboBox_product.Items.Clear();
             products.Clear();
+            RefreshListView();
+            textBox_master.Text = "";
 
             FillComboBox();
             label_measurement.Text = "единица измерения";
@@ -77,7 +79,8 @@ namespace ProductAccounting.WriteOffs
         private void AddProductToListView(Product product)
         {
             ListViewItem item = new ListViewItem(product.Name);
-            item.SubItems.Add(product.Quantity.ToString());
+            item.SubItems.Add(product.IsSplitting ? product.AmountInMeasurement.ToString() : product.Quantity.ToString());
+            item.SubItems.Add(product.IsSplitting ? product.Measurement.ToString() : "шт.");
             item.Tag = product;
             listView_products.Items.Add(item);
         }
@@ -97,7 +100,7 @@ namespace ProductAccounting.WriteOffs
 
             label_measurement.Text = selectedProduct.IsSplitting 
                 ? selectedProduct.Measurement.ToString() 
-                : "Единиц";
+                : "Штук";
         }
 
         private void Button_remove_Click(object sender, EventArgs e)

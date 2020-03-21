@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker_writeOffDate = new System.Windows.Forms.DateTimePicker();
+            this.columnHeader_measurement = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_used)).BeginInit();
@@ -240,7 +241,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_products.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader_product,
-            this.columnHeader_amount});
+            this.columnHeader_amount,
+            this.columnHeader_measurement});
             this.listView_products.FullRowSelect = true;
             this.listView_products.HideSelection = false;
             this.listView_products.Location = new System.Drawing.Point(56, 16);
@@ -254,7 +256,7 @@
             // columnHeader_product
             // 
             this.columnHeader_product.Text = "Продукт";
-            this.columnHeader_product.Width = 335;
+            this.columnHeader_product.Width = 304;
             // 
             // columnHeader_amount
             // 
@@ -312,6 +314,10 @@
             this.dateTimePicker_writeOffDate.Size = new System.Drawing.Size(480, 20);
             this.dateTimePicker_writeOffDate.TabIndex = 1;
             // 
+            // columnHeader_measurement
+            // 
+            this.columnHeader_measurement.Text = "Единица измерения";
+            // 
             // CreateWriteOffsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,5 +364,6 @@
         private System.Windows.Forms.TextBox textBox_master;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label_measurement;
+        private System.Windows.Forms.ColumnHeader columnHeader_measurement;
     }
 }

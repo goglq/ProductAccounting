@@ -1,4 +1,5 @@
-﻿using ProductAccounting.Data.Products;
+﻿using ProductAccounting.Data.Oddments;
+using ProductAccounting.Data.Products;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -36,6 +37,7 @@ namespace ProductAccounting.Data.Procurements
         {
             IsChanged = true;
             procurements.Add(procurement);
+            OddmentsContainer.Instance.Update();
         }
 
         public void Delete(Procurement procurement)
@@ -43,6 +45,7 @@ namespace ProductAccounting.Data.Procurements
             procurements.Remove(procurement);
 
             IsChanged = true;
+            OddmentsContainer.Instance.Update();
         }
 
         public void Change(Procurement oldProcurement, Procurement newProcurement)
@@ -54,6 +57,7 @@ namespace ProductAccounting.Data.Procurements
 
             procurements[procurements.IndexOf(oldProcurement)] = newProcurement;
             IsChanged = true;
+            OddmentsContainer.Instance.Update();
         }
 
         public void Save()

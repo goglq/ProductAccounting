@@ -85,7 +85,8 @@ namespace ProductAccounting.Data.Products
                     new XElement("name", Name),
                     new XElement("note", Note),
                     new XElement("splitting", Splitting),
-                    new XElement("measurement", (int)Measurement));
+                    new XElement("measurement", (int)Measurement),
+                    new XElement("amountMeasurement", AmountInMeasurement));
 
         public static Product FromXml(XElement xElement) => (bool)xElement.Attribute("isSplitting") ?
             new Product(
@@ -93,14 +94,33 @@ namespace ProductAccounting.Data.Products
                 (string)xElement.Element("note"),
                 (decimal)xElement.Element("splitting"),
                 (Measurement)(int)xElement.Element("measurement"))
-            { Quantity = (int)xElement.Element("quantity"), LessQuantity = (int)xElement.Attribute("lessQuantity") } :
+            {
+                Quantity = (int)xElement.Element("quantity"),
+                LessQuantity = (int)xElement.Attribute("lessQuantity"),
+                AmountInMeasurement = (int)xElement.Element("amountMeasurement")
+            } :
             new Product(
                 (string)xElement.Element("name"),
                 (string)xElement.Element("note"))
-            { Quantity = (int)xElement.Element("quantity"), LessQuantity = (int)xElement.Attribute("lessQuantity") };
+            {
+                Quantity = (int)xElement.Element("quantity"),
+                LessQuantity = (int)xElement.Attribute("lessQuantity")
+            };
 
-        public object Clone() => 
-            !IsSplitting ? new Product(Name, Note) 
-            : new Product(Name, Note, Splitting, Measurement);
+        public object Clone()
+        {
+            if(IsSplitting)
+            {
+                Product clone = new Product(Name, Note, Splitting, Measurement);
+                clone.LessQuantity = LessQuantity;
+                return clone;
+            }
+            else
+            {
+                Product clone = new Product(Name, Note);
+                clone.LessQuantity = LessQuantity;
+                return clone;
+            }
+        }
     }
 }

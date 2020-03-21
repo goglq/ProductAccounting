@@ -41,7 +41,10 @@ namespace ProductAccounting.Data.WriteOffs
         {
             string str = "";
             products.ToList()
-                .ForEach(product => str += $"{product.Quantity}x {product.ToString()}, ");
+                .ForEach(product => {
+                    string measurementStr = product.IsSplitting ? $"{product.AmountInMeasurement} {product.Measurement}" : $"{product.Quantity}x";
+                    str += $"{measurementStr} {product.ToString()}, ";
+                });
             return str.ToString();
         }
     }

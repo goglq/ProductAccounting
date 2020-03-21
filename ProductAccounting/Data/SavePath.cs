@@ -21,7 +21,6 @@ namespace ProductAccounting.Data
 
         public string ProductsSavePath { get; }
         public string ProcurementsSavePath { get; }
-        public string OddmentsSavePath { get; }
         public string WriteOffsSavePath { get; }
         public string InventoriesSavePath { get; }
 
@@ -31,7 +30,6 @@ namespace ProductAccounting.Data
 
             ProductsSavePath = Path.Combine("saves", "products.xml");
             ProcurementsSavePath = Path.Combine("saves", "procurements.xml");
-            OddmentsSavePath = Path.Combine("saves", "oddments.xml");
             WriteOffsSavePath = Path.Combine("saves", "writeOffs.xml");
             InventoriesSavePath = Path.Combine("saves", "invetories.xml");
         }

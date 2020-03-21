@@ -1,4 +1,7 @@
-﻿using ProductAccounting.Oddments;
+﻿using ProductAccounting.Data.Procurements;
+using ProductAccounting.Data.Products;
+using ProductAccounting.Data.WriteOffs;
+using ProductAccounting.Oddments;
 using ProductAccounting.Procurements;
 using ProductAccounting.Products;
 using ProductAccounting.WriteOffs;
@@ -27,6 +30,10 @@ namespace ProductAccounting
         public MenuForm()
         {
             InitializeComponent();
+
+            ProductsContainer.Instance.Load();
+            ProcurementsContainer.Instance.Load();
+            WriteOffsContainer.Instance.Load();
 
             button_Products.Tag = 0;
             button_Procurement.Tag = 1;
